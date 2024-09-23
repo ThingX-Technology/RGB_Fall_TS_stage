@@ -116,8 +116,8 @@ class CSVSequenceDataset(Dataset):
         return x, y
 
 def create_csv_dataloaders(folder_path, seq_length, batch_size, train_ratio=0.8, step_size=1, shuffle=True):
-    train_loader = DataLoader(CSVSequenceDataset(os.path.join(folder_path, 'test'), seq_length, step_size), batch_size=batch_size, shuffle=shuffle)
-    val_loader = DataLoader(CSVSequenceDataset(os.path.join(folder_path, 'train'), seq_length, step_size), batch_size=batch_size, shuffle=False)
+    train_loader = DataLoader(CSVSequenceDataset(os.path.join(folder_path, 'train'), seq_length, step_size), batch_size=batch_size, shuffle=shuffle)
+    val_loader = DataLoader(CSVSequenceDataset(os.path.join(folder_path, 'val'), seq_length, step_size), batch_size=batch_size, shuffle=False)
     return train_loader, val_loader
 def create_csv_test_dataloaders(folder_path, seq_length, batch_size, train_ratio=0.8, step_size=1, shuffle=False):
     test_loader = DataLoader(CSVSequenceDataset(os.path.join(folder_path, 'test'), seq_length, step_size), batch_size=batch_size, shuffle=False)
